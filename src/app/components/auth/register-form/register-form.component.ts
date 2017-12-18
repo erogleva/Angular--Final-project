@@ -99,7 +99,6 @@ export class RegisterFormComponent implements OnInit{
     this.registerSuccess = true;
     this.authService.authtoken = data['_kmd']['authtoken'];
     localStorage.setItem('authtoken', data['_kmd']['authtoken']);
-    localStorage.setItem('username', data['username']);
   }
 
   setMessage(c: AbstractControl, message: string, messagesCollection: Object): string {
