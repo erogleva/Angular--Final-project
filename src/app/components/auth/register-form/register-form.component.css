@@ -1,0 +1,16 @@
+button:hover {
+  cursor: pointer;
+}
+
+button:disabled:hover {
+  cursor: default;
+}
+
+.form-group {
+  margin-top: 10px;
+}
+
+label::after{
+  content: ' *';
+  color: #e70000;
+}

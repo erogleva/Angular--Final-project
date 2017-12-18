@@ -1,0 +1,45 @@
+<div class="container body-content span=8 offset=2">
+  <div class="well col-lg-6 col-lg-offset-3">
+    <form class="form-horizontal" (ngSubmit)="register()" [formGroup]="registerForm">
+      <fieldset>
+        <legend>Register</legend>
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-4 control-label">Email</label>
+          <div class="col-lg-10">
+            <input class="form-control" id="inputEmail" placeholder="Email" type="text" formControlName="email">
+            <small id="emailHelp" class="form-text text-danger" *ngIf="emailValidationMessage">{{emailValidationMessage}}</small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputName" class="col-lg-4 control-label">Name</label>
+          <div class="col-lg-10">
+            <input class="form-control" id="inputName" placeholder="Name" type="text" formControlName="name">
+            <small id="nameHelp" class="form-text text-danger" *ngIf="nameValidationMessage">{{nameValidationMessage}}</small>
+          </div>
+        </div>
+        <div formGroupName="auth">
+        <div class="form-group">
+          <label for="inputPassword" class="col-lg-4 control-label">Password</label>
+          <div class="col-lg-10">
+            <input class="form-control" id="inputPassword" placeholder="Password" type="password" formControlName="password">
+            <small id="passwordHelp" class="form-text text-danger" *ngIf="passwordValidationMessage">{{passwordValidationMessage}}</small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword" class="col-lg-4 control-label">Repeat password</label>
+          <div class="col-lg-10">
+            <input class="form-control" id="repeatPassword" placeholder="Repeat password" type="password" formControlName="repeatPassword">
+            <small id="confirmPasswordHelp" class="form-text text-danger" *ngIf="registerForm.get('auth').get('repeatPassword').errors && (registerForm.get('auth').get('repeatPassword').touched || registerForm.get('auth').get('repeatPassword').dirty)">{{confirmPassValidationMessage}}</small>
+          </div>
+        </div>
+        </div>
+        <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-2">
+            <button type="reset" class="btn btn-default">Cancel</button>
+            <button type="submit" class="btn btn-success" [disabled]="registerForm.invalid">Submit</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
